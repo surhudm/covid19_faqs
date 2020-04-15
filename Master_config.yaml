@@ -1,0 +1,183 @@
+Marathi:
+  font1: Noto/Devanagari/NotoSansDevanagari-Regular.ttf 
+  font2: Noto/Devanagari/NotoSansDevanagari-Bold.ttf 
+  font3: Noto/Devanagari/NotoSansDevanagari-Bold.ttf 
+  font5: Noto/Devanagari/NotoSansDevanagari-Bold.ttf 
+  size1: 30
+  size2: 40
+  size3: 30
+  size5: 20
+Tamil:
+  font1: Noto/Tamil/NotoSansTamil-Regular.ttf 
+  font2: Noto/Tamil/NotoSansTamil-Bold.ttf 
+  font3: Noto/Tamil/NotoSansTamil-Bold.ttf 
+  font5: Noto/Tamil/NotoSansTamil-Bold.ttf 
+  size1: 22
+  size2: 28
+  size3: 20
+  size5: 16
+  widthreduce: 5
+Hindi:
+  font1: Noto/Devanagari/NotoSansDevanagari-Regular.ttf 
+  font2: Noto/Devanagari/NotoSansDevanagari-Bold.ttf 
+  font3: Noto/Devanagari/NotoSansDevanagari-Bold.ttf 
+  font5: Noto/Devanagari/NotoSansDevanagari-Bold.ttf 
+  size1: 30
+  size2: 40
+  size3: 30
+  size5: 20
+Urdu:
+  font1: Noto/Urdu/NotoNastaliqUrdu-Regular.ttf 
+  font2: Noto/Urdu/NotoNastaliqUrdu-Regular.ttf 
+  font3: Noto/Urdu/NotoNastaliqUrdu-Regular.ttf 
+  font5: Noto/Urdu/NotoNastaliqUrdu-Regular.ttf 
+  size1: 18
+  size2: 25
+  size3: 18
+  size5: 15
+  widthreduce: -10
+Malayalam:
+  font1: Noto/Malayalam/NotoSansMalayalam-Regular.ttf 
+  font2: Noto/Malayalam/NotoSansMalayalam-Bold.ttf 
+  font3: Noto/Malayalam/NotoSansMalayalam-Bold.ttf 
+  font5: Noto/Malayalam/NotoSansMalayalam-Bold.ttf 
+  size1: 26
+  size2: 32
+  size3: 22
+  size5: 16
+  widthreduce: 6
+Hindi:
+  font1: Noto/Devanagari/NotoSansDevanagari-Regular.ttf 
+  font2: Noto/Devanagari/NotoSansDevanagari-Bold.ttf 
+  font3: Noto/Devanagari/NotoSansDevanagari-Bold.ttf 
+  font5: Noto/Devanagari/NotoSansDevanagari-Bold.ttf 
+  size1: 30
+  size2: 40
+  size3: 30
+  size5: 20
+  widthreduce: -2
+Bangla:
+  font1: Noto/Bengali/NotoSansBengali-Regular.ttf 
+  font2: Noto/Bengali/NotoSansBengali-Bold.ttf 
+  font3: Noto/Bengali/NotoSansBengali-Bold.ttf 
+  font5: Noto/Bengali/NotoSansBengali-Bold.ttf 
+  size1: 30
+  size2: 35
+  size3: 25
+  size5: 20
+Gujarati:
+  font1: Noto/Gujarati/NotoSansGujarati-Regular.ttf 
+  font2: Noto/Gujarati/NotoSansGujarati-Bold.ttf 
+  font3: Noto/Gujarati/NotoSansGujarati-Bold.ttf 
+  font5: Noto/Gujarati/NotoSansGujarati-Bold.ttf 
+  size1: 30
+  size2: 40
+  size3: 30
+  size5: 20
+  widthreduce: 0
+Punjabi:
+  font1: Noto/Punjabi/NotoSansGurmukhi-Regular.ttf 
+  font2: Noto/Punjabi/NotoSansGurmukhi-Bold.ttf 
+  font3: Noto/Punjabi/NotoSansGurmukhi-Bold.ttf 
+  font5: Noto/Punjabi/NotoSansGurmukhi-Bold.ttf 
+  size1: 30
+  size2: 40
+  size3: 30
+  size5: 20
+Telugu:
+  font1: Noto/Telugu/NotoSansTelugu-Regular.ttf 
+  font2: Noto/Telugu/NotoSansTelugu-Bold.ttf 
+  font3: Noto/Telugu/NotoSansTelugu-Bold.ttf 
+  font5: Noto/Telugu/NotoSansTelugu-Bold.ttf 
+  size1: 24
+  size2: 36
+  size3: 26
+  size5: 20
+  widthreduce: 3
+Odia:
+  font1: Noto/Odia/NotoSansOriya-Regular.ttf 
+  font2: Noto/Odia/NotoSansOriya-Bold.ttf 
+  font3: Noto/Odia/NotoSansOriya-Bold.ttf 
+  font5: Noto/Odia/NotoSansOriya-Bold.ttf 
+  size1: 30
+  size2: 35
+  size3: 28
+  size5: 20
+  widthreduce: 0
+Kannada:
+  font1: Noto/Kannada/NotoSansKannada-Regular.ttf 
+  font2: Noto/Kannada/NotoSansKannada-Bold.ttf 
+  font3: Noto/Kannada/NotoSansKannada-Bold.ttf 
+  font5: Noto/Kannada/NotoSansKannada-Bold.ttf 
+  size1: 24
+  size2: 32
+  size3: 22
+  size5: 16
+Asamese:
+  font1: Noto/Bengali/NotoSansBengali-Regular.ttf 
+  font2: Noto/Bengali/NotoSansBengali-Bold.ttf 
+  font3: Noto/Bengali/NotoSansBengali-Bold.ttf 
+  font5: Noto/Bengali/NotoSansBengali-Bold.ttf 
+  size1: 25
+  size2: 30
+  size3: 25
+  size5: 20
+  widthreduce: 2
+Khasi:
+  font1: Noto/English/Montserrat-Regular.ttf 
+  font2: Noto/English/Montserrat-Bold.ttf 
+  font3: Noto/English/Montserrat-Bold.ttf 
+  font5: Noto/English/Montserrat-Bold.ttf 
+  size1: 20
+  size2: 30
+  size3: 24
+  size5: 20
+  widthreduce: 0
+Nepali:
+  font1: Noto/Devanagari/NotoSansDevanagari-Regular.ttf 
+  font2: Noto/Devanagari/NotoSansDevanagari-Bold.ttf 
+  font3: Noto/Devanagari/NotoSansDevanagari-Bold.ttf 
+  font5: Noto/Devanagari/NotoSansDevanagari-Bold.ttf 
+  size1: 30
+  size2: 40
+  size3: 30
+  size5: 20
+  widthreduce: -2
+Manipuri_meitei:
+  font1: Noto/Manipuri/EyekPro-Regular.ttf 
+  font2: Noto/Manipuri/EyekPro-Regular.ttf
+  font3: Noto/Manipuri/EyekPro-Regular.ttf
+  font5: Noto/Manipuri/EyekPro-Regular.ttf
+  size1: 28
+  size2: 36
+  size3: 28
+  size5: 17
+  widthreduce: 8
+Manipuri:
+  font1: Noto/Bengali/NotoSansBengali-Regular.ttf 
+  font2: Noto/Bengali/NotoSansBengali-Bold.ttf 
+  font3: Noto/Bengali/NotoSansBengali-Bold.ttf 
+  font5: Noto/Bengali/NotoSansBengali-Bold.ttf 
+  size1: 28
+  size2: 36
+  size3: 28
+  size5: 17
+  widthreduce: 1
+Konkani:
+  font1: Noto/Devanagari/NotoSansDevanagari-Regular.ttf 
+  font2: Noto/Devanagari/NotoSansDevanagari-Bold.ttf 
+  font3: Noto/Devanagari/NotoSansDevanagari-Bold.ttf 
+  font5: Noto/Devanagari/NotoSansDevanagari-Bold.ttf 
+  size1: 30
+  size2: 40
+  size3: 30
+  size5: 20
+Kashmiri:
+  font1: Noto/Urdu/NotoNastaliqUrdu-Regular.ttf 
+  font2: Noto/Urdu/NotoNastaliqUrdu-Bold.ttf 
+  font3: Noto/Urdu/NotoNastaliqUrdu-Bold.ttf 
+  font5: Noto/Urdu/NotoNastaliqUrdu-Bold.ttf 
+  size1: 30
+  size2: 40
+  size3: 30
+  size5: 20
