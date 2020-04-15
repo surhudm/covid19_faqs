@@ -25,7 +25,10 @@ class MainWindow():
 
         # Load csv file and placements file
         self.df = pandas.read_csv("Hoaxbuster.csv")
-        self.df_pl = np.loadtxt("%s/placements.txt" % self.language)
+        try:
+            self.df_pl = np.loadtxt("%s/placements.txt" % self.language)
+        except:
+            self.df_pl = np.loadtxt("English/placements.txt")
 
         # Load font config
         self.load_font_config()
