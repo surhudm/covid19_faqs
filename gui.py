@@ -41,14 +41,19 @@ class MainWindow():
         from yaml import load, Loader
         fin = open("Master_config.yaml", "r")
         self.config = load(fin, Loader=Loader)
+        fin.close()
+
+    def save_font_config(self):
+        from yaml import dump
+        with open('Master_config.yaml', 'w') as f:
+            dump(self.config, f)
+
+    def save_placements(self):
+        np.savetxt("%s/placements.txt" % self.language, self.df_pl)
 
     def render(self):
         a = fill_poster("Sample_images/%05d" % self.my_image_number)
-        self.widthreduce = 0
-        if "widthreduce" in self.config[self.language]:
-            self.widthreduce = self.config[self.language]["widthreduce"]
-
-        a.convert(self.my_image_number, self.strings, self.placements, self.language, self.fonts, self.widthreduce)
+        a.convert(self.my_image_number, self.strings, self.placements, self.language, self.fonts)
 
         self.my_images = ImageTk.PhotoImage(Image.open("Final/Sample_images/%05d_%s.jpg" % (self.my_image_number, self.language) ))
 
@@ -106,6 +111,14 @@ class MainWindow():
 
         self.initialize_material()
 
+    def write_configs(self):
+
+        # Start out with Master_config.yaml
+        self.save_font_config()
+
+        # Next the placements file
+        self.save_placements()
+
     def key_pressed(self, event):
 
         if event.char == "n":
@@ -124,6 +137,17 @@ class MainWindow():
         if event.char == "d":
             self.config[self.language]["size%d" % (self.modify_string + 1)]  -= 1
             self.update_fonts()
+
+        if event.char == "l":
+            self.df_pl[self.my_image_number-1][self.modify_string + len(self.strings)] += 1
+            self.render()
+
+        if event.char == "s":
+            self.df_pl[self.my_image_number-1][self.modify_string + len(self.strings)] -= 1
+            self.render()
+
+        if event.char == "w":
+            self.write_configs()
 
         return
 
