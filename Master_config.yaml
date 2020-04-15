@@ -5,6 +5,13 @@ Hindi:
   size2: 40
   size3: 30
   size4: 30
+Malayalam:
+  font1: Noto/Malayalam/NotoSansMalayalam-Regular.ttf
+  font2: Noto/Malayalam/NotoSansMalayalam-Bold.ttf
+  size1: 26
+  size2: 37
+  size3: 22
+  size4: 22
 Marathi:
   font1: Noto/Devanagari/NotoSansDevanagari-Regular.ttf
   font2: Noto/Devanagari/NotoSansDevanagari-Bold.ttf

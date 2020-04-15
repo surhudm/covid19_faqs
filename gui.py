@@ -52,6 +52,8 @@ class MainWindow():
             dump(self.config, f)
 
     def save_placements(self):
+        from subprocess import call
+        call ("mkdir %s" % (self.language))
         np.savetxt("%s/placements.txt" % self.language, self.df_pl, fmt="%d")
 
     def render(self):
