@@ -23,10 +23,6 @@ class MainWindow():
         # set first image on canvas
         self.image_on_canvas = self.canvas.create_image(0, 0, anchor = NW, image = self.my_images)
 
-        # button to change image
-        self.button = Button(main, text="Change", command=self.onButton)
-        self.button.grid(row=1, column=0)
-
         # Load csv file and placements file
         self.df = pandas.read_csv("Hoaxbuster.csv")
         self.df_pl = np.loadtxt("%s/placements.txt" % self.language)
@@ -68,10 +64,16 @@ class MainWindow():
         print(self.placements)
         print(self.strings)
 
+        self.update_fonts()
+
+    def update_fonts(self):
         # Fonts
         self.fonts = {}
         self.fonts["1"] = ImageFont.truetype(self.config[self.language]["font1"], size=self.config[self.language]["size1"])
         self.fonts["2"] = ImageFont.truetype(self.config[self.language]["font2"], size=self.config[self.language]["size2"])
+        self.fonts["3"] = ImageFont.truetype(self.config[self.language]["font1"], size=self.config[self.language]["size3"])
+        self.fonts["4"] = ImageFont.truetype(self.config[self.language]["font2"], size=self.config[self.language]["size4"])
+        print(self.config[self.language])
 
         self.render()
 
@@ -82,12 +84,13 @@ class MainWindow():
         self.initialize_material()
 
     def down_key(self, event):
+        self.step_value = 5
 
         self.df_pl[self.my_image_number-1][self.modify_string] = self.df_pl[self.my_image_number-1][self.modify_string] + self.step_value
         self.initialize_material()
 
     #----------------
-    def onButton(self):
+    def nextImage(self):
 
         # next image
         self.my_image_number += 1
@@ -107,10 +110,20 @@ class MainWindow():
 
         if event.char == "n":
             print("pressed")
-            self.onButton()
+            self.nextImage()
 
+        # Choose string
         if event.char == "1" or event.char == "2" or event.char == "3" or event.char == "4" :
-            self.modify_string = int(event.char)
+            self.modify_string = int(event.char)-1
+        
+        # Increase font size
+        if event.char == "i":
+            self.config[self.language]["size%d" % (self.modify_string + 1)]  += 1
+            self.update_fonts()
+
+        if event.char == "d":
+            self.config[self.language]["size%d" % (self.modify_string + 1)]  -= 1
+            self.update_fonts()
 
         return
 

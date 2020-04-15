@@ -37,8 +37,8 @@ class fill_poster:
         # Add all the strings at the right places with the right fonts
         self.output_text(strings[0], pl[0], font=fonts["1"], width=30-widthreduce, color='rgb(94, 94, 94)')
         self.output_text(strings[1], pl[1], font=fonts["2"], width=30-widthreduce)
-        self.output_text(strings[2], pl[2], font=fonts["1"], width=40-widthreduce, color='rgb(94, 94, 94)')
-        self.output_text(strings[3], pl[3], font=fonts["2"], width=45-widthreduce, color='rgb(189, 23, 23)')
+        self.output_text(strings[2], pl[2], font=fonts["3"], width=40-widthreduce, color='rgb(94, 94, 94)')
+        self.output_text(strings[3], pl[3], font=fonts["4"], width=45-widthreduce, color='rgb(189, 23, 23)')
 
         # Save the file
         self.image.save("Final/"+self.imagename+"_%s.jpg" % language)
