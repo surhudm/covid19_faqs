@@ -13,3 +13,5 @@ Increase or decrease the font size with `i` or `d`, respectively.
 Increase or decrease the length of the string by using `l` or `s`, respectively.
 
 Save the placements and fonts file using `w`.
+
+Move to the next image by pressing "n"
