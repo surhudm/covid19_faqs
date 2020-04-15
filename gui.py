@@ -49,7 +49,7 @@ class MainWindow():
             dump(self.config, f)
 
     def save_placements(self):
-        np.savetxt("%s/placements.txt" % self.language, self.df_pl)
+        np.savetxt("%s/placements.txt" % self.language, self.df_pl, fmt="%d")
 
     def render(self):
         a = fill_poster("Sample_images/%05d" % self.my_image_number)
@@ -149,10 +149,21 @@ class MainWindow():
         if event.char == "w":
             self.write_configs()
 
+        if event.char == "q":
+            self.write_configs()
+            root.quit()
+
         return
 
 #----------------------------------------------------------------------
+if __name__ == "__main__":
+    import sys
 
-root = Tk()
-MainWindow(root)
-root.mainloop()
+    try:
+        language = sys.argv[1]
+    except:
+        language = "Marathi"
+
+    root = Tk()
+    MainWindow(root, language=language)
+    root.mainloop()
