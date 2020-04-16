@@ -34,6 +34,20 @@ class MainWindow():
         except:
             self.df_pl = np.loadtxt("English/placements.txt")
 
+        # Test whether placements are version 0 or version 1
+        if self.df_pl[0].size == 8:
+            # Upgrade to new version
+            nrows, ncols = self.df_pl.shape
+            arr = np.zeros(nrows*(ncols+4)).reshape((nrows, ncols+4))
+            print(arr.shape)
+            arr[:, 0:4] = self.df_pl[:, 0:4]
+            arr[:, 4] = 15
+            arr[:, 5] = 1170
+            arr[:, 6:10] = self.df_pl[:, 4:]
+            arr[:, 10] = 100
+            arr[:, 11] = 38
+            self.df_pl = arr
+
         # Load font config
         self.load_font_config()
 
@@ -72,9 +86,14 @@ class MainWindow():
     def initialize_material(self):
         idx = (self.df.Image==self.my_image_number)
         self.strings = self.df[idx][self.language].values
+        idx = (self.df.Image==0)
+        self.strings = np.append(self.strings, self.df[idx][self.language].values)
 
         # String placements
         self.placements = self.df_pl[self.my_image_number-1]
+
+        if self.placements.size == 8:
+            self.placements = np.append(self.placements, [30, 1100, 100, 100])
         print(self.placements)
         print(self.strings)
 
@@ -87,6 +106,15 @@ class MainWindow():
         self.fonts["2"] = ImageFont.truetype(self.config[self.language]["font2"], size=self.config[self.language]["size2"])
         self.fonts["3"] = ImageFont.truetype(self.config[self.language]["font1"], size=self.config[self.language]["size3"])
         self.fonts["4"] = ImageFont.truetype(self.config[self.language]["font2"], size=self.config[self.language]["size4"])
+        if "English_title" not in self.config:
+            self.config["English_title"] = {}
+            self.config["English_title"]["font"] = "Noto/English/Montserrat-Bold.ttf"
+            self.config["English_title"]["size"] = 40
+
+        self.fonts["5"] = ImageFont.truetype(self.config["English_title"]["font"], size=self.config["English_title"]["size"])
+        if "size6" not in self.config[self.language]:
+            self.config[self.language]["size6"] = 10
+        self.fonts["6"] = ImageFont.truetype(self.config[self.language]["font1"], size=self.config[self.language]["size6"])
         print(self.config[self.language])
 
         self.render()
@@ -139,7 +167,7 @@ class MainWindow():
             self.nextImage()
 
         # Choose string
-        if event.char == "1" or event.char == "2" or event.char == "3" or event.char == "4" :
+        if event.char == "1" or event.char == "2" or event.char == "3" or event.char == "4" or event.char == "5" or event.char == "6":
             self.modify_string = int(event.char)-1
         
         # Increase font size
