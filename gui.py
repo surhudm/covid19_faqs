@@ -9,16 +9,18 @@ from modify_poster import fill_poster
 class MainWindow():
 
     #----------------
-    def __init__(self, main, image_number=1, language="Marathi"):
-
+    def __init__(self, main, image_number=1, language="Marathi", width=726, height=1280):
+        self.width = width
+        self.height = height
+        
         # canvas for image
-        self.canvas = Canvas(main, width=726, height=1280)
+        self.canvas = Canvas(main, width=self.width, height=self.height)
         self.canvas.grid(row=0, column=0)
 
         # images
         self.my_image_number = image_number
         self.language = language
-        self.my_images = ImageTk.PhotoImage(Image.open("Sample_images/blank-qna%02d.png" % (self.my_image_number) ).resize([726, 1280]))
+        self.my_images = ImageTk.PhotoImage(Image.open("Sample_images/blank-qna%02d.png" % (self.my_image_number) ).resize([self.width, self.height]))
         #self.my_images = self.my_images._PhotoImage__photo.subsample(5)
         #self.my_images = self.my_images._PhotoImage__photo.zoom(5)
 
@@ -62,7 +64,7 @@ class MainWindow():
         a = fill_poster("Sample_images/blank-qna%02d" % self.my_image_number)
         a.convert(self.my_image_number, self.strings, self.placements, self.language, self.fonts)
 
-        self.my_images = ImageTk.PhotoImage(Image.open("Final/Sample_images/qna%02d_%s.png" % (self.my_image_number, self.language) ).resize([726, 1280]))
+        self.my_images = ImageTk.PhotoImage(Image.open("Final/Sample_images/qna%02d_%s.png" % (self.my_image_number, self.language) ).resize([self.width, self.height]))
 
         # change image
         self.canvas.itemconfig(self.image_on_canvas, image = self.my_images)
@@ -108,12 +110,12 @@ class MainWindow():
         self.my_image_number += 1
 
         try:
-            self.my_images = ImageTk.PhotoImage(Image.open("Sample_images/blank-qna%02d.png" % (self.my_image_number) ).resize([726, 1280]))
+            self.my_images = ImageTk.PhotoImage(Image.open("Sample_images/blank-qna%02d.png" % (self.my_image_number) ).resize([self.width, self.height]))
             #self.my_images = self.my_images._PhotoImage__photo.subsample(5)
             #self.my_images = self.my_images._PhotoImage__photo.zoom(5)
         except:
             self.my_image_number = 1
-            self.my_images = ImageTk.PhotoImage(Image.open("Sample_images/blank-qna%02d.png" % (self.my_image_number) ).resize([726, 1280]))
+            self.my_images = ImageTk.PhotoImage(Image.open("Sample_images/blank-qna%02d.png" % (self.my_image_number) ).resize([self.width, self.height]))
             #self.my_images = self.my_images._PhotoImage__photo.subsample(5)
             #self.my_images = self.my_images._PhotoImage__photo.zoom(5)
 
@@ -176,5 +178,5 @@ if __name__ == "__main__":
         language = "Marathi"
 
     root = Tk()
-    MainWindow(root, language=language)
+    MainWindow(root, language=language, width=726, height=1280)
     root.mainloop()
