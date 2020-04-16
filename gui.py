@@ -18,7 +18,9 @@ class MainWindow():
         # images
         self.my_image_number = image_number
         self.language = language
-        self.my_images = ImageTk.PhotoImage(Image.open("Sample_images/%05d.jpg" % (self.my_image_number) ))
+        self.my_images = ImageTk.PhotoImage(Image.open("Sample_images/blank-qna%02d.png" % (self.my_image_number) ).resize([726, 1280]))
+        #self.my_images = self.my_images._PhotoImage__photo.subsample(5)
+        #self.my_images = self.my_images._PhotoImage__photo.zoom(5)
 
         # set first image on canvas
         self.image_on_canvas = self.canvas.create_image(0, 0, anchor = NW, image = self.my_images)
@@ -57,10 +59,10 @@ class MainWindow():
         np.savetxt("%s/placements.txt" % self.language, self.df_pl, fmt="%d")
 
     def render(self):
-        a = fill_poster("Sample_images/%05d" % self.my_image_number)
+        a = fill_poster("Sample_images/blank-qna%02d" % self.my_image_number)
         a.convert(self.my_image_number, self.strings, self.placements, self.language, self.fonts)
 
-        self.my_images = ImageTk.PhotoImage(Image.open("Final/Sample_images/%05d_%s.jpg" % (self.my_image_number, self.language) ))
+        self.my_images = ImageTk.PhotoImage(Image.open("Final/Sample_images/qna%02d_%s.png" % (self.my_image_number, self.language) ).resize([726, 1280]))
 
         # change image
         self.canvas.itemconfig(self.image_on_canvas, image = self.my_images)
@@ -106,10 +108,14 @@ class MainWindow():
         self.my_image_number += 1
 
         try:
-            self.my_images = ImageTk.PhotoImage(Image.open("Sample_images/%05d.jpg" % (self.my_image_number) ))
+            self.my_images = ImageTk.PhotoImage(Image.open("Sample_images/blank-qna%02d.png" % (self.my_image_number) ).resize([726, 1280]))
+            #self.my_images = self.my_images._PhotoImage__photo.subsample(5)
+            #self.my_images = self.my_images._PhotoImage__photo.zoom(5)
         except:
             self.my_image_number = 1
-            self.my_images = ImageTk.PhotoImage(Image.open("Sample_images/%05d.jpg" % (self.my_image_number) ))
+            self.my_images = ImageTk.PhotoImage(Image.open("Sample_images/blank-qna%02d.png" % (self.my_image_number) ).resize([726, 1280]))
+            #self.my_images = self.my_images._PhotoImage__photo.subsample(5)
+            #self.my_images = self.my_images._PhotoImage__photo.zoom(5)
 
         # change image
         self.canvas.itemconfig(self.image_on_canvas, image = self.my_images)

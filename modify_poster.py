@@ -16,7 +16,7 @@ import pandas
 class fill_poster:
     def __init__(self, image):
         self.imagename = image
-        self.image = Image.open(image+".jpg")
+        self.image = Image.open(image+".png")
         self.fullwidth = self.image.width
 
     def output_text(self, message, y, font=None, width=None, color='rgb(0, 0, 0)', offsety=30, printoffset=False):
@@ -41,4 +41,4 @@ class fill_poster:
         self.output_text(strings[3], pl[3], font=fonts["4"], width=pl[7], color='rgb(189, 23, 23)')
 
         # Save the file
-        self.image.save("Final/"+self.imagename+"_%s.jpg" % language)
+        self.image.save("Final/"+self.imagename.replace("blank-", "")+"_%s.png" % language)
