@@ -105,7 +105,7 @@ class MainWindow():
         self.fonts["1"] = ImageFont.truetype(self.config[self.language]["font1"], size=self.config[self.language]["size1"])
         self.fonts["2"] = ImageFont.truetype(self.config[self.language]["font2"], size=self.config[self.language]["size2"])
         self.fonts["3"] = ImageFont.truetype(self.config[self.language]["font1"], size=self.config[self.language]["size3"])
-        self.fonts["4"] = ImageFont.truetype(self.config[self.language]["font2"], size=self.config[self.language]["size4"])
+        self.fonts["4"] = ImageFont.truetype(self.config[self.language]["font1"], size=self.config[self.language]["size4"])
         if "English_title" not in self.config:
             self.config["English_title"] = {}
             self.config["English_title"]["font"] = "Noto/English/Montserrat-Bold.ttf"
@@ -114,7 +114,10 @@ class MainWindow():
         self.fonts["5"] = ImageFont.truetype(self.config["English_title"]["font"], size=self.config["English_title"]["size"])
         if "size6" not in self.config[self.language]:
             self.config[self.language]["size6"] = 10
-        self.fonts["6"] = ImageFont.truetype(self.config[self.language]["font1"], size=self.config[self.language]["size6"])
+        if "font6" not in self.config[self.language]:
+            self.fonts["6"] = ImageFont.truetype(self.config[self.language]["font1"], size=self.config[self.language]["size6"])
+        else:
+            self.fonts["6"] = ImageFont.truetype(self.config[self.language]["font6"], size=self.config[self.language]["size6"])
         print(self.config[self.language])
 
         self.render()
