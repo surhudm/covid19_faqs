@@ -38,7 +38,7 @@ class fill_poster:
         self.output_text(strings[0], pl[0], font=fonts["1"], width=pl[6], color='rgb(94, 94, 94)')
         self.output_text(strings[1], pl[1], font=fonts["2"], width=pl[7])
         self.output_text(strings[2], pl[2], font=fonts["3"], width=pl[8], color='rgb(94, 94, 94)')
-        self.output_text(strings[3], pl[3], font=fonts["4"], width=pl[9], color='rgb(189, 23, 23)')
+        self.output_text(strings[3], pl[3], font=fonts["4"], width=pl[9], color='rgb(0, 0, 0)')
 
         self.output_text(strings[4], pl[4], font=fonts["5"], width=pl[10], color='rgb(23, 23, 189)')
         self.output_text(strings[5], pl[5], font=fonts["6"], width=pl[11], offsetx=45)
