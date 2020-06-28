@@ -20,7 +20,7 @@ class MainWindow():
         # images
         self.my_image_number = image_number
         self.language = language
-        self.my_images = ImageTk.PhotoImage(Image.open("Sample_images/blank-qna%02d.png" % (self.my_image_number) ).resize([self.width, self.height]))
+        self.my_images = ImageTk.PhotoImage(Image.open("Sample_images2/blank-qna%02d.png" % (self.my_image_number) ).resize([self.width, self.height]))
         #self.my_images = self.my_images._PhotoImage__photo.subsample(5)
         #self.my_images = self.my_images._PhotoImage__photo.zoom(5)
 
@@ -34,19 +34,7 @@ class MainWindow():
         except:
             self.df_pl = np.loadtxt("English/placements.txt")
 
-        # Test whether placements are version 0 or version 1
-        if self.df_pl[0].size == 8:
-            # Upgrade to new version
-            nrows, ncols = self.df_pl.shape
-            arr = np.zeros(nrows*(ncols+4)).reshape((nrows, ncols+4))
-            print(arr.shape)
-            arr[:, 0:4] = self.df_pl[:, 0:4]
-            arr[:, 4] = 15
-            arr[:, 5] = 1170
-            arr[:, 6:10] = self.df_pl[:, 4:]
-            arr[:, 10] = 100
-            arr[:, 11] = 38
-            self.df_pl = arr
+        self.df.replace(np.nan, "", inplace=True)
 
         # Load font config
         self.load_font_config()
@@ -75,10 +63,10 @@ class MainWindow():
         np.savetxt("%s/placements.txt" % self.language, self.df_pl, fmt="%d")
 
     def render(self):
-        a = fill_poster("Sample_images/blank-qna%02d" % self.my_image_number)
+        a = fill_poster("Sample_images2/blank-qna%02d" % self.my_image_number)
         a.convert(self.my_image_number, self.strings, self.placements, self.language, self.fonts)
 
-        self.my_images = ImageTk.PhotoImage(Image.open("Final/Sample_images/qna%02d_%s.png" % (self.my_image_number, self.language) ).resize([self.width, self.height]))
+        self.my_images = ImageTk.PhotoImage(Image.open("Final/Sample_images2/qna%02d_%s.png" % (self.my_image_number, self.language) ).resize([self.width, self.height]))
 
         # change image
         self.canvas.itemconfig(self.image_on_canvas, image = self.my_images)
@@ -92,8 +80,6 @@ class MainWindow():
         # String placements
         self.placements = self.df_pl[self.my_image_number-1]
 
-        if self.placements.size == 8:
-            self.placements = np.append(self.placements, [30, 1100, 100, 100])
         print(self.placements)
         print(self.strings)
 
@@ -110,6 +96,10 @@ class MainWindow():
             self.config["English_title"] = {}
             self.config["English_title"]["font"] = "Noto/English/Montserrat-Bold.ttf"
             self.config["English_title"]["size"] = 40
+        if "English_disclaimer" not in self.config:
+            self.config["English_disclaimer"] = {}
+            self.config["English_disclaimer"]["font"] = "Noto/English/Montserrat-Bold.ttf"
+            self.config["English_disclaimer"]["size"] = 10
 
         self.fonts["5"] = ImageFont.truetype(self.config["English_title"]["font"], size=self.config["English_title"]["size"])
         if "size6" not in self.config[self.language]:
@@ -118,6 +108,8 @@ class MainWindow():
             self.fonts["6"] = ImageFont.truetype(self.config[self.language]["font1"], size=self.config[self.language]["size6"])
         else:
             self.fonts["6"] = ImageFont.truetype(self.config[self.language]["font6"], size=self.config[self.language]["size6"])
+        if "font7" not in self.config[self.language]:
+            self.fonts["7"] = ImageFont.truetype(self.config["English_disclaimer"]["font"], size=self.config["English_disclaimer"]["size"])
         print(self.config[self.language])
 
         self.render()
@@ -141,12 +133,12 @@ class MainWindow():
         self.my_image_number += 1
 
         try:
-            self.my_images = ImageTk.PhotoImage(Image.open("Sample_images/blank-qna%02d.png" % (self.my_image_number) ).resize([self.width, self.height]))
+            self.my_images = ImageTk.PhotoImage(Image.open("Sample_images2/blank-qna%02d.png" % (self.my_image_number) ).resize([self.width, self.height]))
             #self.my_images = self.my_images._PhotoImage__photo.subsample(5)
             #self.my_images = self.my_images._PhotoImage__photo.zoom(5)
         except:
             self.my_image_number = 1
-            self.my_images = ImageTk.PhotoImage(Image.open("Sample_images/blank-qna%02d.png" % (self.my_image_number) ).resize([self.width, self.height]))
+            self.my_images = ImageTk.PhotoImage(Image.open("Sample_images2/blank-qna%02d.png" % (self.my_image_number) ).resize([self.width, self.height]))
             #self.my_images = self.my_images._PhotoImage__photo.subsample(5)
             #self.my_images = self.my_images._PhotoImage__photo.zoom(5)
 
@@ -170,7 +162,7 @@ class MainWindow():
             self.nextImage()
 
         # Choose string
-        if event.char == "1" or event.char == "2" or event.char == "3" or event.char == "4" or event.char == "5" or event.char == "6":
+        if event.char == "1" or event.char == "2" or event.char == "3" or event.char == "4" or event.char == "5" or event.char == "6" or event.char == "7":
             self.modify_string = int(event.char)-1
         
         # Increase font size
@@ -183,10 +175,12 @@ class MainWindow():
             self.update_fonts()
 
         if event.char == "l":
+            print("Got character l", self.df_pl[self.my_image_number-1], len(self.strings))
             self.df_pl[self.my_image_number-1][self.modify_string + len(self.strings)] += 1
             self.render()
 
         if event.char == "s":
+            print("Got character s", self.df_pl[self.my_image_number-1], len(self.strings))
             self.df_pl[self.my_image_number-1][self.modify_string + len(self.strings)] -= 1
             self.render()
 
@@ -209,5 +203,5 @@ if __name__ == "__main__":
         language = "Marathi"
 
     root = Tk()
-    MainWindow(root, language=language, width=726, height=1280)
+    MainWindow(root, language=language, width=363, height=640)
     root.mainloop()
