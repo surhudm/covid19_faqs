@@ -203,5 +203,6 @@ if __name__ == "__main__":
         language = "Marathi"
 
     root = Tk()
-    MainWindow(root, language=language, width=363, height=640)
+    #MainWindow(root, language=language, width=363, height=640)
+    MainWindow(root, language=language, width=726, height=1280)
     root.mainloop()
